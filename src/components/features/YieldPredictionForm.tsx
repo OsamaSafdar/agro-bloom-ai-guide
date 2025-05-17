@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -117,6 +116,14 @@ export default function YieldPredictionForm() {
       fill: "#2E7D32",
     },
   ] : [];
+
+  // Custom component to render bars with different colors based on index
+  const CustomBar = (props: any) => {
+    const { fill, x, y, width, height, index } = props;
+    const barFill = index === chartData.length - 1 ? "#2E7D32" : "#81C784";
+    
+    return <rect x={x} y={y} width={width} height={height} fill={barFill} />;
+  };
 
   return (
     <div className="space-y-6">
@@ -332,8 +339,9 @@ export default function YieldPredictionForm() {
                       <Legend />
                       <Bar 
                         dataKey="yield" 
-                        name="Yield (t/ha)" 
-                        fill={(data, index) => index === chartData.length - 1 ? "#2E7D32" : "#81C784"}
+                        name="Yield (t/ha)"
+                        fill="#81C784"
+                        shape={<CustomBar />}
                       />
                     </BarChart>
                   </ResponsiveContainer>
