@@ -1,6 +1,6 @@
 
 import DashboardLayout from "@/components/layout/DashboardLayout";
-import YieldPredictionForm from "@/components/features/YieldPredictionForm";
+import YieldPredictionForm from "@/components/features/yield-prediction/YieldPredictionForm";
 
 const YieldPrediction = () => {
   return (
